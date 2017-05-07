@@ -61,6 +61,11 @@ def move_player(direction):
   player_coord = player_coord + direction
   set_pixel(player_coord,4,high)
 
+def set_board():
+  set_pixel(player_coord,4,high)
+  set_pixel(enemy_coords[0],enemy_coords[1],high)
+
+set_board()
 start_game()
 start_time = runing_time()
 while True:
