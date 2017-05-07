@@ -22,7 +22,16 @@ def move_enemy():
       
 def game_over():
   display.scroll("game over")
+  reset()
   
 def start_game():
+  display.scroll("press a to start")
+  x = "no"
+  while x != "pressed":
+    if button_a.was_pressed():
+      x = "pressed"
+  display.scroll("3")
+  display.scroll("2")
+  display.scroll("1")
 
 
