@@ -11,6 +11,8 @@ enemy_coords = [0,2]
 high = 9
 low = 0
 
+speed = 1
+
 # when the player fires a missile
 def missile():
   global enemy_coords
@@ -27,6 +29,7 @@ def missile():
     enemy_coords[1] = 0
     enemy_coords[0] = random.randint(0,4)
     enemy_start_time = running_time()
+    speed = speed + 1
   set_pixel(enemy_coords[0],enemy_coords[1],high)
     
   
@@ -73,6 +76,8 @@ set_board()
 start_game()
 enemy_start_time = runing_time()
 while True:
+  time_diff = running_time() - enemy_start_time
+  if time_diff
   if pin1.is_touched():
     missile()
   if pin0.is_touched():
