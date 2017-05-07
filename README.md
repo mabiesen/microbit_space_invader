@@ -1,5 +1,8 @@
 # microbit_space_invader
 
+
+Work In Progress
+
 Space invader game micropython.  Touch control
 
 Players character is single dot on bottom of screen.  Touch pad 0 controls left movemnt, 1 is to fire, and 2 is to move right.
