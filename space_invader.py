@@ -61,6 +61,8 @@ def move_player(direction):
   player_coord = player_coord + direction
   set_pixel(player_coord,4,high)
 
+start_game()
+start_time = runing_time()
 while True:
   if pin1.is_touched():
     missile()
