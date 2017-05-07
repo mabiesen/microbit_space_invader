@@ -18,6 +18,8 @@ hit_count = 0
 def missile():
   global enemy_coords
   global enemy_start_time
+  global speed
+  global hit_count
   ctr = 0
   while ctr < 4:
     set_pixel(player_coord,ctr,high)
@@ -31,6 +33,7 @@ def missile():
     enemy_coords[0] = random.randint(0,4)
     enemy_start_time = running_time()
     speed = speed + 1
+    hit_count = hit_count + 1
   set_pixel(enemy_coords[0],enemy_coords[1],high)
     
   
