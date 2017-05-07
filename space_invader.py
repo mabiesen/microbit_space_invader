@@ -41,6 +41,12 @@ def start_game():
   display.scroll("1")
   
 def move_player(direction):
-  
+  if player_coord == 4 and direction == 1:
+    return
+  if player_coord == 0 and direction == -1:
+    return
+  set_pixel(player_coord,4,low)
+  player_coord = player_coord + direction
+  set_pixel(player_coord,4,high)
 
 
