@@ -12,6 +12,7 @@ high = 9
 low = 0
 
 speed = 1
+hit_count = 0
 
 # when the player fires a missile
 def missile():
