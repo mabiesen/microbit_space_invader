@@ -24,7 +24,7 @@ def move_enemy():
   else:
     set_pixel(enemy_coords[0],enemy_coords[1],low)
     enemy_coords[1] = enemy_coords[1] + 1
-  
+    set_pixel(enemy_coords[0],enemy_coords[1],high)
       
 def game_over():
   display.scroll("game over")
@@ -39,5 +39,8 @@ def start_game():
   display.scroll("3")
   display.scroll("2")
   display.scroll("1")
+  
+def move_player(direction):
+  
 
 
