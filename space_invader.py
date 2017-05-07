@@ -17,7 +17,7 @@ def missile():
   global enemy_start_time
   ctr = 0
   while ctr < 4:
-    set_pixel(player_coord,x,high)
+    set_pixel(player_coord,ctr,high)
     ctr = ctr + 1
   sleep(500)
   while ctr < 4:
