@@ -1,3 +1,6 @@
+from microbit import *
+import random
+
 
 # coords given as x
 player_coord = 0
@@ -10,10 +13,19 @@ low = 0
 
 # when the player fires a missile
 def missile():
+  global enemy_coords
   ctr = 0
-  while ctr < 5:
+  while ctr < 4:
     set_pixel(player_coord,x,high)
     ctr = ctr + 1
+  sleep(500)
+  while ctr < 4:
+    set_pixel(player_coord,x,low)
+    ctr = ctr + 1
+  if enemy_coords[0] == player_coord:
+    enemy_coords[1] = 0
+    enemy_coords[0] = random.randint(0,4)
+  
     
 def move_enemy():
   global enemy_coords
