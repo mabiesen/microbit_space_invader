@@ -61,4 +61,12 @@ def move_player(direction):
   player_coord = player_coord + direction
   set_pixel(player_coord,4,high)
 
-
+while True:
+  if pin1.is_touched():
+    missile()
+  if pin0.is_touched():
+    move_player(-1)
+  if pin2.is_touched():
+    move_player(1)
+  
+  
