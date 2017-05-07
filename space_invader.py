@@ -40,6 +40,7 @@ def missile():
     
 def move_enemy():
   global enemy_coords
+  global enemy_start_time
   if enemy_coords[1] == 3 and player_coord == enemy_coords[0]:
       game_over()
   elif enemy_coords[1] == 4:
@@ -48,6 +49,7 @@ def move_enemy():
     set_pixel(enemy_coords[0],enemy_coords[1],low)
     enemy_coords[1] = enemy_coords[1] + 1
     set_pixel(enemy_coords[0],enemy_coords[1],high)
+    enemy_start_time = running_time
       
 def game_over():
   display.scroll("game over")
@@ -83,7 +85,7 @@ start_game()
 enemy_start_time = runing_time()
 while True:
   time_diff = running_time() - enemy_start_time
-  if time_diff
+  if time_diff > 
   if pin1.is_touched():
     missile()
   if pin0.is_touched():
