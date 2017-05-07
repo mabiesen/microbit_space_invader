@@ -85,7 +85,8 @@ start_game()
 enemy_start_time = runing_time()
 while True:
   time_diff = running_time() - enemy_start_time
-  if time_diff > 
+  if time_diff > 2000:
+    move_enemy()
   if pin1.is_touched():
     missile()
   if pin0.is_touched():
