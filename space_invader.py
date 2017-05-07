@@ -51,6 +51,8 @@ def move_enemy():
       
 def game_over():
   display.scroll("game over")
+  display.scroll("hit count")
+  display.scroll(str(hit_count))
   reset()
   
 def start_game():
