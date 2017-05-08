@@ -19,7 +19,7 @@ speed = 1
 # hit_count, also incrememnts after each kill
 hit_count = 0
 
-# when the player fires a missile
+# when the player fires a missile by tilting the microbit forward
 def missile():
   global enemy_coords
   global enemy_start_time
