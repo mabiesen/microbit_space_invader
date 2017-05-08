@@ -1,12 +1,18 @@
-# microbit_space_invader
+# Microbit Micropython Space Invader
 
 
-Work In Progress
+I looked for a space invaders project in microbit in micropython for about 15 minutes and couldn't find anything!  Some folks made this game in other languages like Microsoft Blocks, but being a Python fanatic I wanted a python version. So I made my own : )
 
-Space invader game micropython.  Touch control
+### Game Play
 
-Players character is single dot on bottom of screen.  Touch pad 0 controls left movemnt, 1 is to fire, and 2 is to move right.
+The player is represented by a single dot on the bottom of the screen, the enemy is a single dot on top of the screen that slowly falls down.  The player piece is moved by pressing the "a" or "b" buttons (a for left, b for right).
 
-When the player shoots, the whole column is lit up
+The goal of the game is to shoot down the enemy before it touches the player or the back end of the board, to do this you tilt the microbit forward.  Each time an enemy is killed, the speed of the game increases (my personal best is 18).
 
-If an incoming dot hits the player or the back row, the player is dead.
+In the event the enemy hits your player or the back of the board, the game is over and your score is displayed.  Then the game is reset to play again.
+
+
+
+### Lessons Learned
+
+Initially I wanted to use the microbit's touch pads to control the player.  This proved to be inaccurate; often the touch pads would not register or would register more than one touch (because there is only an is_touched function for the touch pads and no was_touched, which means you can only determine if the player is currently touching the pad).
