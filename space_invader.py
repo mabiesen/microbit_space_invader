@@ -86,7 +86,7 @@ enemy_start_time = running_time()
 while True:
   current_time = running_time()
   time_diff = current_time - enemy_start_time
-  if time_diff > 2000 - (speed * 50):
+  if time_diff > 1500 - (speed * 50):
     move_enemy()
   y = accelerometer.get_y()
   if y < -200:
