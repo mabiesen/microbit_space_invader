@@ -6,7 +6,7 @@ import random
 player_coord = 0
 
 # coords given as x y
-enemy_coords = [0,2]
+enemy_coords = [2,0]
 
 high = 9
 low = 0
@@ -22,19 +22,18 @@ def missile():
   global hit_count
   ctr = 0
   while ctr < 4:
-    set_pixel(player_coord,ctr,high)
+    display.set_pixel(player_coord,ctr,high)
     ctr = ctr + 1
   sleep(500)
-  while ctr < 4:
-    set_pixel(player_coord,x,low)
-    ctr = ctr + 1
+  display.clear()
   if enemy_coords[0] == player_coord:
     enemy_coords[1] = 0
     enemy_coords[0] = random.randint(0,4)
     enemy_start_time = running_time()
     speed = speed + 1
     hit_count = hit_count + 1
-  set_pixel(enemy_coords[0],enemy_coords[1],high)
+  display.set_pixel(enemy_coords[0],enemy_coords[1],high)
+  display.set_pixel(player_coord, 4,high)
     
   
     
@@ -46,10 +45,10 @@ def move_enemy():
   elif enemy_coords[1] == 4:
     game_over()
   else:
-    set_pixel(enemy_coords[0],enemy_coords[1],low)
+    display.set_pixel(enemy_coords[0],enemy_coords[1],low)
     enemy_coords[1] = enemy_coords[1] + 1
-    set_pixel(enemy_coords[0],enemy_coords[1],high)
-    enemy_start_time = running_time
+    display.set_pixel(enemy_coords[0],enemy_coords[1],high)
+    enemy_start_time = running_time()
       
 def game_over():
   display.scroll("game over")
@@ -68,30 +67,31 @@ def start_game():
   display.scroll("1")
   
 def move_player(direction):
+  global player_coord
   if player_coord == 4 and direction == 1:
     return
   if player_coord == 0 and direction == -1:
     return
-  set_pixel(player_coord,4,low)
+  display.set_pixel(player_coord,4,low)
   player_coord = player_coord + direction
-  set_pixel(player_coord,4,high)
+  display.set_pixel(player_coord,4,high)
 
 def set_board():
-  set_pixel(player_coord,4,high)
-  set_pixel(enemy_coords[0],enemy_coords[1],high)
+  display.set_pixel(player_coord,4,high)
+  display.set_pixel(enemy_coords[0],enemy_coords[1],high)
 
+#start_game()
 set_board()
-start_game()
-enemy_start_time = runing_time()
+enemy_start_time = running_time()
 while True:
-  time_diff = running_time() - enemy_start_time
+  current_time = running_time()
+  time_diff = current_time - enemy_start_time
   if time_diff > 2000 - (speed * 100):
     move_enemy()
-  if pin1.is_touched():
+  y = accelerometer.get_y()
+  if y < -200:
     missile()
-  if pin0.is_touched():
+  if button_a.was_pressed():
     move_player(-1)
-  if pin2.is_touched():
+  if button_b.was_pressed():
     move_player(1)
-  
-  
